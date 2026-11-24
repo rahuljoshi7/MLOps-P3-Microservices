@@ -1,0 +1,24 @@
+services:
+  preprocessing:
+    build:
+      context: .
+      dockerfile: preprocessing/DockerFile
+    container_name: preprocessing-container
+    ports:
+      - "8001:8000"
+
+  prediction:
+    build:
+      context: .
+      dockerfile: prediction/DockerFile
+    container_name: prediction-container
+    ports:
+      - "8002:8000"
+
+  logging:
+    build:
+      context: .
+      dockerfile: logging_service/DockerFile
+    container_name: logging-container
+    ports:
+      - "8003:8000"
